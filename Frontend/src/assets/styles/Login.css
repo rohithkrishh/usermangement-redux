@@ -1,0 +1,186 @@
+/* Common Reset and Variables */
+:root {
+    --primary-color: #007bff;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --border-color: #ddd;
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Shared styles */
+  .admin-login,
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding: 20px;
+  }
+  .admin-header{
+    margin-top: -366px;
+    margin-right: -209px
+  }
+  
+  /* Admin Login Specific Styles */
+  .admin-login .login-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .admin-login .admin-header {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  .admin-login .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .admin-login .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .admin-login .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin-login .input-wrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    padding-right: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .admin-login .input-wrapper .input-icon {
+    position: absolute;
+    right: 0.75rem;
+    color: #666;
+  }
+  
+  .admin-login .ad-l-error {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* User Login Specific Styles */
+  .login-container .login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .login-container .login-form h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  
+  .login-container .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  
+  .login-container .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  .login-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+  
+  .login-container .error {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Button styles for both */
+  .admin-login button,
+  .login-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .admin-login button:hover,
+  .login-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Signup link for user login */
+  .signup-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error state for inputs */
+  .admin-login input.error,
+  .login-container input.error {
+    border-color: var(--error-color);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .admin-login .login-container,
+    .login-container .login-form {
+      padding: 1.5rem;
+    }
+    
+    .admin-login .admin-header,
+    .login-container .login-form h1 {
+      font-size: 1.5rem;
+    }
+  }
