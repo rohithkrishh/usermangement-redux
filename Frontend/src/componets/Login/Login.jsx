@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toast, Toaster } from "sonner";
+import { Mail, Lock } from 'lucide-react';
+import { login } from '../../redux/slice/UserSlice';
 import axiosInstance from "../../utils/axiosInstance";
-import { login } from "../../redux/slice/UserSlice";
-import { toast ,Toaster} from "sonner";
-import {Mail,Lock} from 'lucide-react';
 import "../../assets/styles/Login.css";
 
 function Login() {
@@ -21,20 +21,21 @@ function Login() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
+    
     if (e.target.name === "email") setEmailError("");
     if (e.target.name === "password") setPasswordError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     let formValid = true;
     if (!formData.email) {
       setEmailError("Email is required");
       formValid = false;
     }
     if (!formData.password) {
-      setPasswordError("Password id required");
+      setPasswordError("Password is required");
       formValid = false;
     }
 
@@ -44,23 +45,25 @@ function Login() {
       const response = await axiosInstance.post("/auth/login", formData);
 
       const user = response.data.user;
+
       dispatch(login({ user }));
-      toast.success("login successfull");
-      navigate("/home");
+
+      toast.success("Login successful");
+      navigate("/");
     } catch (error) {
       console.error(error);
 
       if (error.response?.status === 403) {
-        toast.error("Admin cannot login as user");
-      } else if (error.response?.status == 400) {
+        toast.error("Admins cannot login as users.");
+      } else if (error.response?.status === 400) {
         toast.error(error.response?.data?.message || "Login failed");
       } else {
-        toast.error("An unexpected error occured");
+        toast.error("An unexpected error occurred");
       }
     }
   };
 
-   return (
+  return (
     <>
       <Toaster position="top-right" richColors />
       <div className="login-container">
@@ -70,7 +73,6 @@ function Login() {
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <div className="input-wrapper">
-                {/* <Mail className="input-icon" /> */}
                 <input
                   type="email"
                   id="email"
@@ -85,7 +87,6 @@ function Login() {
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <div className="input-wrapper">
-                {/* <Lock className="input-icon" /> */}
                 <input
                   type="password"
                   id="password"
@@ -109,5 +110,4 @@ function Login() {
 }
 
 export default Login;
-
 
