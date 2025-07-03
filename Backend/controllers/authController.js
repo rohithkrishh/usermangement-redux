@@ -3,12 +3,12 @@ const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
 const signup = async (req, res) => {
-    console.log("FormData",req.body)
-        console.log("Ddddd",req.file)
+    
     try {
         const { username, email, phone, password, profileImage } = req.body;
         
-
+        console.log("FormData",req.body)
+        console.log("Ddddd",req.file)
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
