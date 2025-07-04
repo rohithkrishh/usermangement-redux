@@ -7,7 +7,7 @@ const cookieParser=require('cookie-parser')
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://localhost:5174'];
 
 const authRoute = require('./routes/authRoute'); 
 const userRoute = require('./routes/userRoutes')
