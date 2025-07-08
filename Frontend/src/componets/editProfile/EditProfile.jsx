@@ -202,7 +202,7 @@ function EditProfile() {
                     Confirm
                   </button>
                   <button className="cancel-btn" onClick={handleCancelSave}>
-                    Cancel
+                    cancel
                   </button>
                 </div>
               </div>
